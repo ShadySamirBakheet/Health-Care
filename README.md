@@ -39,10 +39,10 @@ Then you can start the Serverpod server.
 
     dart bin/main.dart
 
-Then you can start the Serverpod server from network.
-
-    ngrok http 8080
-
 When you are finished, you can shut down Serverpod with `Ctrl-C`, then stop Postgres and Redis.
 
     docker compose stop
+    
+You can start the Serverpod server from network.
+
+    ngrok http 8080
