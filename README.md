@@ -3,15 +3,16 @@
 * app for follow patient healthy
 * develop by flutter and serverpod
 
-## requeriment
+## Requeriment
 
 * Flutter [https://flutter.dev](https://flutter.dev). for app
 * Serverpod [https://docs.serverpod.dev](https://docs.serverpod.dev). for server 
 * Docker [https://www.docker.com](https://www.docker.com/products/docker-desktop/). for server 
+* Ngrok [https://ngrok.com](https://ngrok.com). for run server from network
 
-## app
+## App
 
-### health_care_flutter
+### health care flutter
 
 A new Flutter project with Serverpod.
 
@@ -37,6 +38,10 @@ To run your server, you first need to start Postgres and Redis. It's easiest to 
 Then you can start the Serverpod server.
 
     dart bin/main.dart
+
+Then you can start the Serverpod server from network.
+
+    ngrok http 8080
 
 When you are finished, you can shut down Serverpod with `Ctrl-C`, then stop Postgres and Redis.
 
