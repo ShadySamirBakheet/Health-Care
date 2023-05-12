@@ -1,0 +1,66 @@
+name: health_care_flutter
+description: A new Flutter project with Serverpod.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+  flutter: ">=3.3.0"
+
+dependencies:
+  bloc: ^8.1.1
+  cupertino_icons: ^1.0.2
+  equatable: any
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.2
+  flutter_form_builder: ^7.8.0
+  flutter_svg: ^2.0.4
+  font_awesome_flutter: ^10.4.0
+  form_builder_validators: ^8.5.0
+  get_it: ^7.2.0
+  health_care_client:
+    path: ../health_care_client
+  http: ^0.13.6
+  image_picker: ^0.8.7+3
+  # intl: ^0.17.0
+  motion_toast: ^2.6.6
+  path_provider: ^2.0.14
+  pretty_qr_code: ^2.0.3
+  qr_code_scanner: ^1.0.1
+  screenshot: ^1.3.0
+  serverpod_auth_shared_flutter: ^1.1.0
+  serverpod_flutter: ^1.0.1
+  share_plus: ^6.3.2
+  shared_preferences: ^2.1.0
+
+dependency_overrides:
+  intl: ^0.18.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^4.0.0+1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages

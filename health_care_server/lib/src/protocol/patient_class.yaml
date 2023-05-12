@@ -1,0 +1,10 @@
+class: Patient
+table: patinet
+
+fields:
+  name: String
+  age: double
+  gender: bool
+  healthyReport: String
+  healthyReportShort: String
+  reports: List<String>?

@@ -1,0 +1,14 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 8090,
+      "driver": "PostgreSQL",
+      "name": "health_care",
+      "username": "postgres",
+      "database": "health_care",
+      "password": "BZ06vxCjujbU7DWFLUhbVKbzpxKbIRas"
+    }
+  ]
+}

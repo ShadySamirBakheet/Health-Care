@@ -1,0 +1,14 @@
+example:
+  - hello:
+patient:
+  - getPatientById:
+  - getAllPatient:
+  - addPatient:
+  - updatePatient:
+  - deletePatient:
+user:
+  - signInUser:
+  - signOut:
+  - registerNewUser:
+  - forgotPassword:
+  - changePassword:

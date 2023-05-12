@@ -1,0 +1,9 @@
+class: User
+table: users
+
+fields:
+  name: String
+  email: String
+  gender: bool
+  password: String
+  authKey: String?
