@@ -16,16 +16,16 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
-  flutter_form_builder: ^7.8.0
+  flutter_form_builder: ^9.0.0
   flutter_svg: ^2.0.4
   font_awesome_flutter: ^10.4.0
-  form_builder_validators: ^8.5.0
+  form_builder_validators: ^9.0.0
   get_it: ^7.2.0
   health_care_client:
     path: ../health_care_client
   http: ^0.13.6
   image_picker: ^0.8.7+3
-  # intl: ^0.17.0
+  intl: ^0.18.0
   motion_toast: ^2.6.6
   path_provider: ^2.0.14
   pretty_qr_code: ^2.0.3
@@ -33,11 +33,8 @@ dependencies:
   screenshot: ^1.3.0
   serverpod_auth_shared_flutter: ^1.1.0
   serverpod_flutter: ^1.0.1
-  share_plus: ^6.3.2
+  share_plus: ^7.0.0
   shared_preferences: ^2.1.0
-
-dependency_overrides:
-  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:

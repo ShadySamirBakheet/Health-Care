@@ -102,6 +102,7 @@ class AddPatientPage extends StatelessWidget {
                       horizontal: AppPadding.p32,
                     ),
                     onChanged: PatientCubit.cubit(context).onChangedImages,
+                    onDelete: PatientCubit.cubit(context).onDelete,
                     images: PatientCubit.cubit(context).images,
                   ),
                   AppButton(

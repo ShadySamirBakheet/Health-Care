@@ -9,5 +9,5 @@ class Network {
   )..connectivityMonitor = FlutterConnectivityMonitor();
 
   static String localHost = 'http://localhost:8080/';
-  static String realHost = 'https://cc0d-105-182-250-147.ngrok-free.app/';
+  static String realHost = 'https://a3fd-105-182-125-197.ngrok-free.app/';
 }

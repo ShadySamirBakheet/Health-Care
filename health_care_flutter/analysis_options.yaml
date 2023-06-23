@@ -16,3 +16,4 @@ linter:
     use_build_context_synchronously: false
     prefer_asserts_with_message: false
     unawaited_futures: false
+    avoid_positional_boolean_parameters: false

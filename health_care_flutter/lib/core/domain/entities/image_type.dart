@@ -5,8 +5,10 @@ import 'package:image_picker/image_picker.dart';
 class ImageData {
   XFile file;
   bool isLocal;
+  String? link;
   ImageData({
     required this.file,
+    this.link,
     this.isLocal = true,
   });
 

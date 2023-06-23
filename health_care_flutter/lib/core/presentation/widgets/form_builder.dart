@@ -609,6 +609,7 @@ class SelectImageFiled extends StatelessWidget {
     this.onChanged,
     this.borderRadius,
     this.images,
+    this.onDelete,
   });
 
   final String label;
@@ -621,6 +622,7 @@ class SelectImageFiled extends StatelessWidget {
   final Color? colorFilled;
   final double? borderRadius;
   final void Function(List<ImageData>?)? onChanged;
+  final void Function(ImageData)? onDelete;
   final List<ImageData>? images;
 
   @override
@@ -630,6 +632,7 @@ class SelectImageFiled extends StatelessWidget {
         ImagePickerInitial(),
         images: images ?? [],
         onChanged: onChanged,
+        onDelete: onDelete,
       ),
       child: BlocBuilder<ImagePickerCubit, ImagePickerState>(
         builder: (context, state) {
@@ -654,15 +657,41 @@ class SelectImageFiled extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         final e = ImagePickerCubit.cubit(context).images[index];
-                        return Padding(
-                          padding: const EdgeInsets.all(AppPadding.p4),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(AppSize.s10),
-                            child: Image.file(
-                              File(e.file.path),
-                              height: AppSize.s130,
-                              fit: BoxFit.cover,
-                            ),
+                        return SizedBox(
+                          height: AppSize.s130,
+                          width: AppSize.s130,
+                          child: Stack(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(AppPadding.p4),
+                                child: ClipRRect(
+                                  borderRadius:
+                                      BorderRadius.circular(AppSize.s10),
+                                  child: Image.file(
+                                    File(e.file.path),
+                                    height: AppSize.s130,
+                                    width: AppSize.s130,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      ImagePickerCubit.cubit(context)
+                                          .deleteImage(e);
+                                    },
+                                    icon: const Icon(
+                                      Icons.delete_forever,
+                                      size: AppSize.s20,
+                                      color: ColorManager.error,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         );
                       },

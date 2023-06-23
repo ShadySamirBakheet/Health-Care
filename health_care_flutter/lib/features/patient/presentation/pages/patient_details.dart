@@ -91,17 +91,14 @@ class PatientDetailsPage extends StatelessWidget {
                   style: FontStyles.regular17Black,
                 ),
               ),
-              ...PatientCubit.cubit(context)
-                  .images
-                  .map(
+              ...PatientCubit.cubit(context).images.map(
                     (e) => Padding(
                       padding: const EdgeInsets.all(AppPadding.p10),
                       child: Image.file(
                         File(e.file.path),
                       ),
                     ),
-                  )
-                  .toList(),
+                  ),
               const SizedBox(
                 height: AppSize.s32,
               )

@@ -100,6 +100,7 @@ class PatientCubit extends Cubit<PatientState> {
 
   void onChangedImages(List<ImageData>? p1) {
     images = p1 ?? [];
+
     print('data images ---> $p1');
   }
 
@@ -126,6 +127,7 @@ class PatientCubit extends Cubit<PatientState> {
     patient = await repository.getPatientById(paientId);
     print(patient);
     if (patient != null) {
+      await getImages(); // add this line
       emit(PatientDoneRead());
     } else {
       emit(PatientEmptyData());
@@ -143,9 +145,14 @@ class PatientCubit extends Cubit<PatientState> {
       await imagePath.writeAsBytes(data?.buffer.asInt8List() ?? []);
       final file = XFile(imagePath.path);
 
-      images.add(ImageData(file: file, isLocal: false));
+      images.add(ImageData(file: file, isLocal: false, link: element));
     }
 
     print(images);
+  }
+
+  void onDelete(ImageData p1) {
+    images.remove(p1);
+    patient?.reports?.removeWhere((element) => element == p1.link);
   }
 }

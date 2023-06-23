@@ -28,6 +28,13 @@ class HomeCubit extends Cubit<HomeState> {
     emit(HomeGetDataSate());
   }
 
+  Future deletePatient(Patient patient) async {
+    await repository.deletePatient(
+      patient,
+    );
+    await getAllpatient();
+  }
+
   Future scanQrCode(BuildContext context, {bool isAuthed = false}) async {
     Navigator.push(
       context,

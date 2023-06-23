@@ -17,21 +17,21 @@ ALTER TABLE ONLY "patinet"
   ADD CONSTRAINT patinet_pkey PRIMARY KEY (id);
 
 
+
+Class User as table users
 --
--- Class User as table users
--- --
--- DROP TABLE users;
+DROP TABLE users;
 
--- CREATE TABLE "users" (
---   "id" serial,
---   "name" text NOT NULL,
---   "email" text NOT NULL,
---   "gender" boolean NOT NULL,
---   "password" text NOT NULL,
---   "authKey" text
--- );
+CREATE TABLE "users" (
+  "id" serial,
+  "name" text NOT NULL,
+  "email" text NOT NULL,
+  "gender" boolean NOT NULL,
+  "password" text NOT NULL,
+  "authKey" text
+);
 
--- ALTER TABLE ONLY "users"
---   ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY "users"
+  ADD CONSTRAINT users_pkey PRIMARY KEY (id);
 
 

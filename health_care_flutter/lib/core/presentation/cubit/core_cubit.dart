@@ -23,19 +23,32 @@ class ImagePickerCubit extends Cubit<ImagePickerState> {
     super.initialState, {
     required this.images,
     this.onChanged,
+    this.onDelete,
   });
 
   final ImagePicker picker = ImagePicker();
   final void Function(List<ImageData>?)? onChanged;
+  final void Function(ImageData)? onDelete;
+
   static ImagePickerCubit cubit(BuildContext context) =>
       BlocProvider.of(context);
   final List<ImageData> images;
   Future pickImage({ImageSource source = ImageSource.gallery}) async {
     final image = await picker.pickImage(source: source);
     if (image != null) {
-      images.add(ImageData(file: image));
+      images.add(
+        ImageData(
+          file: image,
+        ),
+      );
       onChanged?.call(images);
       emit(ImagePickerAddImage());
     }
+  }
+
+  void deleteImage(ImageData imageData) {
+    onDelete?.call(imageData);
+    images.remove(imageData);
+    emit(ImagePickerAddImage());
   }
 }
