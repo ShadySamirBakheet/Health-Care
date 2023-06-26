@@ -7,6 +7,7 @@ import 'package:health_care_flutter/core/resources/routes_manager.dart';
 import 'package:health_care_flutter/core/resources/styles_manager.dart';
 import 'package:health_care_flutter/core/resources/values_manager.dart';
 import 'package:health_care_flutter/features/patient/domain/repositories/patient_repository.dart';
+import 'package:health_care_flutter/features/patient/presentation/cubit/patient_cubit.dart';
 import 'package:health_care_flutter/features/qrscaner/presentation/pages/qr_scan.dart';
 import 'package:motion_toast/motion_toast.dart';
 
@@ -44,10 +45,14 @@ class HomeCubit extends Cubit<HomeState> {
             postCheckIn: (code) {
               log('message of date scaned is "$code"');
               Navigator.of(context).pop();
-              Navigator.of(context).pushNamed(
-                isAuthed ? Routes.editPatientRoute : Routes.viewPatientRoute,
-                arguments: int.tryParse(code),
-              );
+              Navigator.of(context)
+                  .pushNamed(
+                    isAuthed
+                        ? Routes.editPatientRoute
+                        : Routes.viewPatientRoute,
+                    arguments: int.tryParse(code),
+                  )
+                  .then((value) => PatientCubit.cubit(context).patient = null);
 
               MotionToast.success(
                 title: Text(

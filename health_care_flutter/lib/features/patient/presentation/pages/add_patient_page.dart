@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:health_care_flutter/core/presentation/widgets/app_buttons.dart';
@@ -33,6 +35,7 @@ class AddPatientPage extends StatelessWidget {
       ),
       body: BlocConsumer<PatientCubit, PatientState>(
         listener: (context, state) {
+          log('state $state');
           if (state is PatientDone) {
             Navigator.of(context).pop();
           }
@@ -107,7 +110,8 @@ class AddPatientPage extends StatelessWidget {
                   ),
                   AppButton(
                     onPressed: () {
-                      PatientCubit.cubit(context).saveData(isEdit: isEdit);
+                      PatientCubit.cubit(context)
+                          .saveData(isEdit: isEdit, context: context);
                     },
                     title: AppStrings.save,
                     horizontalPadding: AppPadding.p32,

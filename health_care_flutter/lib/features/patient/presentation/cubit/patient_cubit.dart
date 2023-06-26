@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:health_care_client/health_care_client.dart';
 import 'package:health_care_flutter/core/domain/entities/image_type.dart';
+import 'package:health_care_flutter/core/resources/styles_manager.dart';
 import 'package:health_care_flutter/features/patient/domain/repositories/patient_repository.dart';
+import 'package:motion_toast/motion_toast.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
@@ -48,7 +50,10 @@ class PatientCubit extends Cubit<PatientState> {
     });
   }
 
-  Future<void> saveData({required bool isEdit}) async {
+  Future<void> saveData({
+    required bool isEdit,
+    required BuildContext context,
+  }) async {
     final userName = nameCtn.text;
     final age = double.tryParse(ageCtn.text);
     final healthyShort = healthyShortCtn.text;
@@ -63,10 +68,19 @@ class PatientCubit extends Cubit<PatientState> {
         if (element.isLocal) {
           final url = await repository.uploadFile(
             file: element.file,
-            name: 'patient/images/${DateTime.now()}${element.file.name}',
+            name:
+                'patient/images/${DateTime.now().microsecondsSinceEpoch}${element.file.name}',
           );
           if (url != null) {
             reports.add(url);
+          } else {
+            MotionToast.error(
+              description: Text(
+                'Can not upload ${element.file.name}',
+                style: FontStyles.regular17Black,
+              ),
+            ).show(context);
+            await Future.delayed(const Duration(seconds: 3), () {});
           }
         }
       }

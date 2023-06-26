@@ -5,6 +5,7 @@ import 'package:health_care_flutter/core/resources/routes_manager.dart';
 import 'package:health_care_flutter/core/resources/styles_manager.dart';
 import 'package:health_care_flutter/core/resources/values_manager.dart';
 import 'package:health_care_flutter/features/home/presentation/cubit/home_cubit.dart';
+import 'package:health_care_flutter/features/patient/presentation/cubit/patient_cubit.dart';
 
 class PatientItem extends StatelessWidget {
   const PatientItem({
@@ -36,7 +37,8 @@ class PatientItem extends StatelessWidget {
       child: ListTile(
         onTap: () {
           Navigator.of(context)
-              .pushNamed(Routes.viewPatientRoute, arguments: patient.id);
+              .pushNamed(Routes.viewPatientRoute, arguments: patient.id)
+              .then((value) => PatientCubit.cubit(context).patient = null);
         },
         leading: CircleAvatar(
           child: Text((patient.id ?? 0).toString()),
