@@ -2,12 +2,10 @@ import 'dart:developer';
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:flutter/material.dart';
 import 'package:health_care_client/health_care_client.dart';
 import 'package:health_care_flutter/core/data/network.dart';
 import 'package:health_care_flutter/features/patient/domain/repositories/patient_repository.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:motion_toast/motion_toast.dart';
 
 class PatientRepositoryImpl extends PatientRepository {
   @override
